@@ -17,7 +17,7 @@ public class ColorSnakeAnimationTimer extends AnimationTimer{
 	private Sprite food;
 	private int scale;
 	private boolean cantDraw;
-	
+	private boolean isDead;
 
 
 	public ColorSnakeAnimationTimer(Pane paneBoard, ArrayList<Sprite> snake, int scale) {
@@ -27,7 +27,8 @@ public class ColorSnakeAnimationTimer extends AnimationTimer{
 		this.time = 0;
 		this.foodExists = false;
 		this.scale = scale;
-		cantDraw = false;
+		this.cantDraw = false;
+		this.isDead = false;
 	}
 
 
@@ -37,10 +38,14 @@ public class ColorSnakeAnimationTimer extends AnimationTimer{
 
 	@Override
 	public void handle(long now) {
-		
 		List<Sprite> sprites = getSprites();
-		
-		
+		if (!isDead) {
+			update(sprites);
+		}
+	}
+
+
+	private void update(List<Sprite> sprites) {
 		
 		sprites.forEach(sprite -> {
 			if(sprite.getType().equals("food")) {
@@ -83,6 +88,23 @@ public class ColorSnakeAnimationTimer extends AnimationTimer{
 			paneBoard.getChildren().remove(food);
 			paneBoard.getChildren().add(grow);
 			foodExists = false;
+		}
+		
+		isDead();
+	}
+
+
+	private void isDead() {
+		snake.forEach(sprite -> {
+			if (snake.indexOf(sprite) != 0) {
+				if (sprite.getTranslateX() == snake.get(0).getTranslateX() && sprite.getTranslateY() == snake.get(0).getTranslateY()) {
+					isDead = true;
+				}
+			}
+		});
+		
+		if (snake.get(0).getTranslateX() >= paneBoard.getWidth() || snake.get(0).getTranslateY() >= paneBoard.getHeight()) {
+			isDead = true;
 		}
 	}
 

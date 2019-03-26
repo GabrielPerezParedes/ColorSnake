@@ -31,8 +31,8 @@ public class ColorSnakeController {
 		paneBoard.setClip(clip);
 		
 		snake.add(new Sprite (20 * scale, 20 * scale, scale, scale, "snake", Color.RED, 2));
-		snake.add(new Sprite (20 * scale , 20 * scale, scale, scale, "snake", Color.GREEN, 2));
-		snake.add(new Sprite (20 * scale , 20 * scale, scale, scale, "snake", Color.GREEN, 2));
+		snake.add(new Sprite (19 * scale , 20 * scale, scale, scale, "snake", Color.GREEN, 2));
+		snake.add(new Sprite (18 * scale , 20 * scale, scale, scale, "snake", Color.GREEN, 2));
 		
 		snake.forEach(sprite -> {
 			paneBoard.getChildren().add(sprite);
@@ -56,23 +56,23 @@ public class ColorSnakeController {
 
 		switch(key.getCode())
 		{
-		case UP:
+		case W:
 			if (snake.get(0).getDireccion() != 3) {
 				snake.get(0).setDireccion(1);
 			}
 			break;
-		case DOWN:
+		case S:
 			if (snake.get(0).getDireccion() != 1) {
 				snake.get(0).setDireccion(3);
 			}
 			break;
-		case LEFT:
+		case A:
 
 			if (snake.get(0).getDireccion() != 2) {
 				snake.get(0).setDireccion(0);
 			}
 			break;
-		case RIGHT:
+		case D:
 
 			if (snake.get(0).getDireccion() != 0) {
 				snake.get(0).setDireccion(2);
@@ -86,6 +86,8 @@ public class ColorSnakeController {
 		key.consume();
 		
 	}
+	
+	
 }
 
 

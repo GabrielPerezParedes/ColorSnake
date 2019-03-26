@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
 <AnchorPane focusTraversable="true" maxHeight="800.0" maxWidth="900.0" minHeight="800.0" minWidth="900.0" prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="colorSnake.ColorSnakeController">
    <children>
       <Pane id="paneBoard" fx:id="paneBoard" focusTraversable="true" layoutX="2.0" layoutY="-1.0" onKeyReleased="#keyMoveHnd" prefHeight="800.0" prefWidth="800.0" styleClass="paneBoard" stylesheets="@application.css" AnchorPane.leftAnchor="2.0" />
+      <Button id="buttonExit" fx:id="buttonExit" layoutX="816.0" layoutY="759.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" text="Exit" textFill="#eb0000" />
    </children>
 </AnchorPane>
