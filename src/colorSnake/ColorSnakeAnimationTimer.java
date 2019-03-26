@@ -55,7 +55,7 @@ public class ColorSnakeAnimationTimer extends AnimationTimer{
 				int y = (int) Math.floor(Math.random() * 40);
 				food = new Sprite(x * scale, y * scale, scale, scale, "food", Color.YELLOW, 4);
 				sprites.forEach(sprite -> {
-					if(sprite.getBoundsInParent().intersects(food.getBoundsInParent())) {
+					if(sprite.getTranslateX() == food.getTranslateX() && sprite.getTranslateY() == food.getTranslateY()) {
 						cantDraw = true;
 					}
 				});
@@ -76,7 +76,7 @@ public class ColorSnakeAnimationTimer extends AnimationTimer{
 			});
 		}
 		
-		if(snake.get(0).getBoundsInParent().intersects(food.getBoundsInParent())) {
+		if(snake.get(0).getTranslateX() == food.getTranslateX() && snake.get(0).getTranslateY() == food.getTranslateY()) {
 			Sprite tail = snake.get(snake.size() - 1);
 			Sprite grow = new Sprite ( tail.getOldX(), tail.getOldY(), scale, scale, "snake", Color.GREEN, tail.getDireccion());
 			snake.add(grow);
